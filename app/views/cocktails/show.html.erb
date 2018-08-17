@@ -1,0 +1,38 @@
+
+<div>
+  <h2>Cocktail info</h2>
+  <p>Name: <%= @cocktail.name %></p>
+
+
+  <p><strong>You need the following to make a <%= @cocktail.name %>:</strong></p>
+  <% @cocktail.doses.each do |dose| %>
+    <p><%= dose.description %> of <%= dose.ingredient.name %></p>
+  <% end %>
+</div>
+
+
+<div>
+  <h2>Add a dose to <%= @cocktail.name %></h2>
+
+  <ul class="alerts">
+  <% if @dose.errors %>
+    <% @dose.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  <% end %>
+</ul>
+
+
+<%= simple_form_for([@cocktail, @dose]) do |f| %>
+<%= f.input :description, label: "Enter the dose" %>
+<%= f.association :ingredient %>
+<%= f.submit %>
+<% end %>
+
+<br>
+<br>
+  <%= link_to "Main Menu", cocktails_path, class: "btn btn-primary" %>
+<br><br>
+  <%= link_to "Add a new dose", new_cocktail_dose_path(@cocktail), class: "btn btn-primary"  %>
+
+</div>
