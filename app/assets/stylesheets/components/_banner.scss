@@ -1,0 +1,52 @@
+.banner {
+  text-align: center;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  height: 100vh;
+}
+.banner h1 {
+  font-size: 40px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+    color: white;
+}
+.banner h2 {
+  font-size: 30px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+  color: white;
+}
+.banner p {
+  font-size: 20px;
+  font-weight: lighter;
+  color: rgb(255, 255, 255);
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+.banner-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.form-box {
+  background: white;
+  opacity: 0.8;
+  position: relative;
+  width: 500px;
+  height: 300px;
+
+}
+
+.awesomeness {
+  opacity: none !important;
+  position: absolute;
+  top: 377px;
+   // height: 500px;
+   z-index:1000;
+    .h2 {
+      color: black !important;
+    }
+}

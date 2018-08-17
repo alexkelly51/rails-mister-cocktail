@@ -1,38 +1,41 @@
-
-<div>
-  <h2>Cocktail info</h2>
-  <p>Name: <%= @cocktail.name %></p>
-
-
-  <p><strong>You need the following to make a <%= @cocktail.name %>:</strong></p>
-  <% @cocktail.doses.each do |dose| %>
-    <p><%= dose.description %> of <%= dose.ingredient.name %></p>
-  <% end %>
+<div class="navbar-wagon">
+  <!-- Logo -->
+  <a href="/" class="navbar-wagon-brand">
+    <h1>Off the rails Cocktail Hour</h1>
+    <span><%= link_to "Create a new cocktail", new_cocktail_path, class: "btn btn-primary"  %></span>
+    <span><%= link_to "See all cocktails", cocktails_path, class: "btn btn-danger"  %></span>
+  </a>
 </div>
 
 
-<div>
-  <h2>Add a dose to <%= @cocktail.name %></h2>
 
-  <ul class="alerts">
-  <% if @dose.errors %>
-    <% @dose.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  <% end %>
-</ul>
-
-
-<%= simple_form_for([@cocktail, @dose]) do |f| %>
-<%= f.input :description, label: "Enter the dose" %>
-<%= f.association :ingredient %>
-<%= f.submit %>
-<% end %>
-
-<br>
-<br>
-  <%= link_to "Main Menu", cocktails_path, class: "btn btn-primary" %>
-<br><br>
-  <%= link_to "Add a new dose", new_cocktail_dose_path(@cocktail), class: "btn btn-primary"  %>
-
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://source.unsplash.com/collection/962396/800x450');">
+  <div class="banner-content">
+    <h1>How to make a <%= @cocktail.name %></h1>
+      <h2><strong>You need the following:</strong></h2>
+          <% @cocktail.doses.each do |dose| %>
+      <p><%= dose.description %> of <strong><%= dose.ingredient.name %></strong></p>
+      <% end %>
+    <div class="form-box">
+      <ul class="alerts">
+        <% if @dose.errors %>
+          <% @dose.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+      <div class="awesomeness">
+      <h2>Add a dose to <%= @cocktail.name %></h2>
+        <%= simple_form_for([@cocktail, @dose]) do |f| %>
+          <%= f.input :description, label: "Enter the dose" %>
+          <%= f.association :ingredient %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+  </div>
 </div>
+
+<img src="">
+
+
